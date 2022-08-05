@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.text-center{
+    text-align: center;
+}
+
+nav{
+                
+    background-color:black;
+    padding-right: 2%;
+}
+nav img{
+    width: auto;
+    height: 40px;
+    
+}
+nav ul{
+    margin-right: 300px;
+}
+nav a{
+    color: white !important;
+}
+nav a:hover{
+    color:rgb(99, 77, 187) !important;
+}
+.btn{
+    margin-left: 10px;
+}
+.btn:hover{
+    color: black;
+    background-color: rgb(30, 6, 245);
+}
+.modal input{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.products{
+    margin-right: 300px;
+}
+
+.dropdown-item{
+    color: black;
+    background-color: black;
+}
+
