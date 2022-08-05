@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatCardModule} from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -14,6 +14,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { LoginformComponent } from './components/loginform/loginform.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StudenthomepageComponent } from './components/studenthomepage/studenthomepage.component';
+import { SubcategoryComponent } from './components/subcategory/subcategory.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     RegisterComponent,
     WelcomeComponent,
     LoginformComponent,
+    StudenthomepageComponent,
+    SubcategoryComponent,
    
     
   ],
@@ -34,7 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     FormsModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule,
+    MatCardModule
     
   ],
   providers: [],

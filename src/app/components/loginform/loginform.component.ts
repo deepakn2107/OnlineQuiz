@@ -41,7 +41,7 @@ export class LoginformComponent implements OnInit {
         this.route.navigateByUrl("")
       }
       else if(users && this.id==2){
-        this.route.navigateByUrl("/register")
+        this.route.navigateByUrl("/studenthomepage")
       }
       else{
         alert("User not Found")
