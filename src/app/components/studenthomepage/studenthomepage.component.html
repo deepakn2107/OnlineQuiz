@@ -135,20 +135,22 @@
 
         </main>
     </div>
+
+
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="padding-left:30px; margin-top: 60px;">
         <div class="row placeholders">
-              <div class="col-xs-6 col-sm-3 placeholder">
+              <div class="col-xs-6 col-sm-3 placeholder" *ngFor="let cat of category">
                 <div class="card" style="width: 18rem; background-color: rgb(163, 151, 255);" >
-                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwuMR5QRLuHQA6uuAfrddtD4sFgy_sp_KixA&usqp=CAU" width="auto" height="120" class="card-img-top" alt="...">
+                  <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwuMR5QRLuHQA6uuAfrddtD4sFgy_sp_KixA&usqp=CAU" width="auto" height="120" class="card-img-top" alt="..."> -->
                   <div class="card-body">
-                    <h2 class="card-title"><strong style="font-weight:bolder ;">Technical Quiz</strong></h2>
+                    <h2 class="card-title"><strong style="font-weight:bolder ;">{{cat.quizCategory}} Quizes</strong></h2>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="subcategory" class="btn btn-primary">View Quizes</a>
+                    <a href="subcategory/{{cat.quizId}}" class="btn btn-primary">View Quizes</a>
                   </div>
                   </div> 
                 </div>
 
-                <div class="col-xs-6 col-sm-3 placeholder">
+                <!-- <div class="col-xs-6 col-sm-3 placeholder">
                   <div class="card" style="width: 18rem; background-color: rgb(163, 151, 255);" >
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDqQGKYCMQF1pIGPhi8mArWvw1j5cvniXpsA&usqp=CAU" width="auto" height="120" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -157,7 +159,7 @@
                       <a href="subcategoryforapps" class="btn btn-primary">View Quizes</a>
                     </div>
                     </div> 
-                  </div>
+                  </div> -->
         
           
       </div>

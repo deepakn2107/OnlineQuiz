@@ -79,39 +79,40 @@
 
         </main>
     </div>
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="padding-left:30px; margin-top: 60px;">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="padding-left:30px; margin-top: 30px;">
         <div class="row placeholders">
-              <div class="col-xs-9 col-sm-6 placeholder">
+              <div class="col-xs-9 col-sm-9 placeholder" *ngFor="let quest of questions, let i = index" >
                 <div class="container mt-sm-5 my-1">
                     <div class="question ml-sm-5 pl-sm-5 pt-2">
-                        <div class="py-2 h5"><b>Q. which option best describes your job role?</b></div>
+
+                        <div class="py-2 h5"><b> {{i+1}}. {{quest.question}}</b></div>
                         <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
-                            <label class="options">Small Business Owner or Employee
+                            <label class="options">{{quest.option1}}
                                 <input type="radio" name="radio">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="options">Nonprofit Owner or Employee
+                            <label class="options">{{quest.option2}}
                                 <input type="radio" name="radio">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="options">Journalist or Activist
+                            <label class="options">{{quest.option3}}
                                 <input type="radio" name="radio">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="options">Other
+                            <label class="options">{{quest.option4}}
                                 <input type="radio" name="radio">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center pt-3">
+                    <!-- <div class="d-flex align-items-center pt-3">
                         <div id="prev">
                             <button class="btn btn-primary">Previous</button>
                         </div>
                         <div class="ml-auto mr-sm-5">
                             <button class="btn btn-success">Next</button>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>          
       </div>

@@ -19,6 +19,7 @@ import { SubcategoryComponent } from './components/subcategory/subcategory.compo
 import { SubcategoryforappsComponent } from './components/subcategoryforapps/subcategoryforapps.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { AdminhomepageComponent } from './components/adminhomepage/adminhomepage.component';
+import { StudentanalysisComponent } from './components/studentanalysis/studentanalysis.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { AdminhomepageComponent } from './components/adminhomepage/adminhomepage
     SubcategoryforappsComponent,
     QuestionsComponent,
     AdminhomepageComponent,
+    StudentanalysisComponent,
    
     
   ],

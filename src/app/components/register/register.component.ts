@@ -14,13 +14,13 @@ export class RegisterComponent implements OnInit {
   constructor(private service:QuizserviceService, private route:Router) { }
 
   ngOnInit(): void {
-    this.onSubmit()
+    
   }
 
   onSubmit(){
     console.log(this.user);
     this.service.saveUser(this.user).subscribe((data)=>{
-      
+      console.log(this.user)
       alert("Registration Sucessfull");
       this.route.navigateByUrl("/login");
     });

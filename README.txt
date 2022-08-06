@@ -10,4 +10,9 @@ Update on 05.08.2022 forenoon
 update on 06.08.2022 morning
 
 completed front end screens for students and admin
-will work on frontend integration part with backend
+will work on frontend integration part with backend.o
+
+update on 06.08.2022 forenoon
+
+partially completed the integration of category, quiz category, and quiz questions.
+now working on score card part and description card in ui
