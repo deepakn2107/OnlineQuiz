@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Quiz } from 'src/app/common/quiz';
 import { QuizserviceService } from 'src/app/services/quizservice.service';
 
@@ -10,7 +10,7 @@ import { QuizserviceService } from 'src/app/services/quizservice.service';
 })
 export class SubcategoryComponent implements OnInit {
   quizes: Quiz[]
-  constructor(private service:QuizserviceService, private activateRoute:ActivatedRoute) { }
+  constructor(private service:QuizserviceService, private activateRoute:ActivatedRoute,private route:Router) { }
 
   ngOnInit(): void {
     this.getAllQuizes()
@@ -23,4 +23,9 @@ export class SubcategoryComponent implements OnInit {
     })
   }
 
+gotoQuiz(qId:number){
+  const studentId= this.activateRoute.snapshot.paramMap.get("studentId")
+  this.route.navigateByUrl("questions/"+qId+"/"+studentId)
+
+}
 }

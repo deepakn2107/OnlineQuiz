@@ -9,12 +9,12 @@ import { QuizserviceService } from 'src/app/services/quizservice.service';
   styleUrls: ['./loginform.component.css']
 })
 export class LoginformComponent implements OnInit {
-  user: User[]
+  users: User[]
   Password:string
   mailId:string
 
   id:number
-
+  user :User = new User(0,"","","","","","",0)
 
   constructor(private service:QuizserviceService, private route :Router, private activaterRoute:ActivatedRoute) { }
 
@@ -26,13 +26,13 @@ export class LoginformComponent implements OnInit {
   listUsers(){
     this.service.getAllUsers().subscribe(data=>{
       console.log(data);
-      this.user =data;
+      this.users =data;
     })
 
   }
 
   validate(){
-    const users=this.user.find((a:any)=>{
+    const users=this.users.find((a:any)=>{
       this.id = a.roleId
       return a.email==this.mailId && a.password==this.Password
     });
@@ -41,13 +41,20 @@ export class LoginformComponent implements OnInit {
         this.route.navigateByUrl("/adminhomepage")
       }
       else if(users && this.id==2){
-        this.route.navigateByUrl("/studenthomepage")
+        this.service.getUserByEmail(this.mailId).subscribe(data=>{
+          
+          this.user=data;
+          console.log(this.user.userId);
+          this.route.navigateByUrl("/studenthomepage/"+this.user.userId)
+        })
+        
       }
       else{
-        alert("User not Found")
+        alert("User not Found. Create account to access this page.")
       }
 
 
 
   }
+
 }

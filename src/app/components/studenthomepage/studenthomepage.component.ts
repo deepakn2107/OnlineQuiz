@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizCategory } from 'src/app/common/quiz-category';
+import { User } from 'src/app/common/user';
 import { QuizserviceService } from 'src/app/services/quizservice.service';
 
 @Component({
@@ -10,8 +11,11 @@ import { QuizserviceService } from 'src/app/services/quizservice.service';
 })
 export class StudenthomepageComponent implements OnInit {
   category : QuizCategory[]
-  constructor( private route: Router, private service:QuizserviceService) { }
-
+  
+ 
+  constructor( private route: Router, private service:QuizserviceService, private activateRouter:ActivatedRoute) { }
+  
+ 
   ngOnInit(): void {
     this.getAllCategories()
   }
@@ -20,6 +24,11 @@ export class StudenthomepageComponent implements OnInit {
       console.log(data);
       this.category =data;
     })
+  }
+
+  gotoQuiz(quizcatid:number){
+    const studentId = this.activateRouter.snapshot.paramMap.get("studentId");
+    this.route.navigateByUrl("/subcategory/"+quizcatid+"/"+studentId)
   }
 
 }

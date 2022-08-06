@@ -15,4 +15,11 @@ will work on frontend integration part with backend.o
 update on 06.08.2022 forenoon
 
 partially completed the integration of category, quiz category, and quiz questions.
-now working on score card part and description card in ui
+now working on score card part and description card in u.
+
+update on 06.08.2022 night
+completed integration for students.
+created all front end screens.
+
+yet to integrate admin part
+

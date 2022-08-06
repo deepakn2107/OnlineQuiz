@@ -20,6 +20,8 @@ import { SubcategoryforappsComponent } from './components/subcategoryforapps/sub
 import { QuestionsComponent } from './components/questions/questions.component';
 import { AdminhomepageComponent } from './components/adminhomepage/adminhomepage.component';
 import { StudentanalysisComponent } from './components/studentanalysis/studentanalysis.component';
+import { ScorecardComponent } from './components/scorecard/scorecard.component';
+import { AllquizesComponent } from './components/allquizes/allquizes.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { StudentanalysisComponent } from './components/studentanalysis/studentan
     QuestionsComponent,
     AdminhomepageComponent,
     StudentanalysisComponent,
+    ScorecardComponent,
+    AllquizesComponent,
    
     
   ],

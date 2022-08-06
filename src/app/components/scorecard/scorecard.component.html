@@ -37,11 +37,11 @@
           <ul class="nav nav-pills flex-column mb-auto">
 
             <!-- <li>
-                <a href="" class="nav-link text-white a:hover" >
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
-                  Home
-                </a>
-              </li> -->
+                  <a href="" class="nav-link text-white a:hover" >
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                    Home
+                  </a>
+                </li> -->
             <li>
               <a href="studenthomepage/:studentId" class="nav-link text-white  a:hover">
                 <svg class="bi me-2" width="16" height="16">
@@ -51,7 +51,7 @@
               </a>
             </li>
             <li>
-              <a href="scorecard" class="nav-link text-white a:hover">
+              <a href="#" class="nav-link text-white a:hover">
                 <svg class="bi me-2" width="16" height="16">
                   <use xlink:href="#grid" />
                 </svg>
@@ -59,11 +59,11 @@
               </a>
             </li>
             <!-- <li>
-                <a href="subcategory/:quizcatid/:studentId" class="nav-link text-white a:hover">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                  Quizes
-                </a>
-              </li> -->
+                  <a href="subcategory/:quizcatid/:studentId" class="nav-link text-white a:hover">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                    Quizes
+                  </a>
+                </li> -->
 
           </ul>
           <hr>
@@ -91,26 +91,39 @@
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="padding-left:30px; margin-top: 60px;">
       <div class="row placeholders">
-        <div class="col-xs-6 col-sm-3 placeholder" *ngFor="let quiz of quizes">
-          <div class="card" style="width: 18rem; background-color: rgb(163, 151, 255);">
-            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNJcl4XW_3S2rz5zo70kCSK9QWslvLBUsNpQ&usqp=CAU" width="auto" height="120" class="card-img-top" alt="..."> -->
-            <div class="card-body">
-              <h2 class="card-title"><strong style="font-weight:bolder ;">{{quiz.quizName}}</strong></h2>
-              <p class="card-text">{{quiz.description}}.</p>
+        <div class="col-xs-9 col-sm-9 placeholder">
+          <div class="container mt-sm-9 my-1">
+            <h1>scorecard</h1>
+            &nbsp;&nbsp;
+            <table class=" table table-bordered table-striped table-light ">
+              <tr>
+                <th>Serial No</th>
+                <th>User Name</th>
+                <th>Marks Scored</th>
+                <th>Quiz Name</th>
+                <th>Action</th>
 
-              <a (click)="gotoQuiz(quiz.qId)" class="btn btn-primary">Attempt</a>
-            </div>
+              </tr>
+
+              <tr>
+                <td>101</td>
+                <td>Deepak N</td>
+                <td>100</td>
+                <td>Java</td>
+                <td>
+                  <button type="submit" class="btn btn-info">View</button>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
-
-  
-
       </div>
     </div>
+  </div>
 
 
-    <!-- Bootstrap core JavaScript
-================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

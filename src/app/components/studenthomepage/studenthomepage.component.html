@@ -97,20 +97,20 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
             
-              <li>
+              <!-- <li>
                 <a href="" class="nav-link text-white a:hover" >
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                   Home
                 </a>
-              </li>
+              </li> -->
               <li>
-                <a href="studenthomepage" class="nav-link text-white  a:hover">
+                <a href="studenthomepage/:studentId" class="nav-link text-white  a:hover">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
                   Categories
                 </a>
               </li>
               <li>
-                <a href="#" class="nav-link text-white a:hover">
+                <a href="scorecard" class="nav-link text-white a:hover">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
                   Score card
                 </a>
@@ -144,13 +144,13 @@
                   <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwuMR5QRLuHQA6uuAfrddtD4sFgy_sp_KixA&usqp=CAU" width="auto" height="120" class="card-img-top" alt="..."> -->
                   <div class="card-body">
                     <h2 class="card-title"><strong style="font-weight:bolder ;">{{cat.quizCategory}} Quizes</strong></h2>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="subcategory/{{cat.quizId}}" class="btn btn-primary">View Quizes</a>
+                    <p class="card-text">{{cat.description}}.</p>
+                    <a (click)="gotoQuiz(cat.quizId)" class="btn btn-primary">View Quizes</a>
                   </div>
                   </div> 
-                </div>
+              </div>
 
-                <!-- <div class="col-xs-6 col-sm-3 placeholder">
+                <!-- <div class="col-xs-6 col-sm-3 placeholder">quizId
                   <div class="card" style="width: 18rem; background-color: rgb(163, 151, 255);" >
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDqQGKYCMQF1pIGPhi8mArWvw1j5cvniXpsA&usqp=CAU" width="auto" height="120" class="card-img-top" alt="...">
                     <div class="card-body">

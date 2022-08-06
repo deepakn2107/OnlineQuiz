@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { Questions } from '../common/questions';
 import { Quiz } from '../common/quiz';
 import { QuizCategory } from '../common/quiz-category';
+import { Scorecard } from '../common/scorecard';
 import { User } from '../common/user';
 
 @Injectable({
@@ -17,8 +18,9 @@ export class QuizserviceService {
   private quizurl ="http://localhost:8080/api/quiz/search/findByquizcatId?id="
 
   private questurl ="http://localhost:8080/api/question/search/findByqId?id="
+  private scorecardurl ="http://localhost:8080/api/scorecard"
   constructor(private httpClient: HttpClient) { }
-
+  scorecard:Scorecard =new Scorecard(0,0,0,0)
 saveUser(user:User):Observable<User>{
   console.log(user);
   const httpOptions = {
@@ -49,11 +51,26 @@ getAllQuestions(id:string):Observable<Questions[]>{
   const url = this.questurl+id
   return this.httpClient.get<getAllQuestions>(url).pipe(map(data=>data._embedded.questions));
 
+}
+getUserByEmail(email:string):Observable<User>{
+  const url = "http://localhost:8080/api/user/search/findByEmailContainsIgnoreCase?email="+email;
 
+  return this.httpClient.get<User>(url);
 
 }
+saveScore(scorecard:Scorecard):Observable<Scorecard>{
+  console.log(scorecard);
+  const httpOptions = {
+    headers : new HttpHeaders({
+      'Content_type' : 'application/json',
+      'Authorization' : 'auth-token',
+      'Access-Control-Allow-Origin' : '*'
+    })
+    
+  };
+  return this.httpClient.post<Scorecard>(this.scorecardurl, scorecard, httpOptions);
 }
-
+}
 
 interface getUserResponse{
   _embedded:{
@@ -87,3 +104,4 @@ interface getAllQuestions{
     questions:Questions[]
   }
 }
+

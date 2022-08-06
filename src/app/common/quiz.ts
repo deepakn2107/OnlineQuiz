@@ -9,5 +9,6 @@ export class Quiz {
                 public quizName:string,
                 public quizcatId:number,
                 public noOfQuestions:number, 
-                public totalMarks:number){}
+                public totalMarks:number,
+                public description:string){}
 }

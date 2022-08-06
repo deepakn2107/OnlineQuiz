@@ -2,7 +2,7 @@ export class Scorecard {
 
 
     constructor(public serialNo:number,
-                public userid:number,
-                public marksscored:number,
-                public quizId:number){}
+                public userId:any,
+                public marksScored:number,
+                public quizId:any){}
 }
