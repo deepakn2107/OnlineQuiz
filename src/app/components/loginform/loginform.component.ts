@@ -38,7 +38,7 @@ export class LoginformComponent implements OnInit {
     });
 
       if(users && this.id==1){
-        this.route.navigateByUrl("")
+        this.route.navigateByUrl("/adminhomepage")
       }
       else if(users && this.id==2){
         this.route.navigateByUrl("/studenthomepage")

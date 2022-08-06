@@ -16,6 +16,9 @@ import { LoginformComponent } from './components/loginform/loginform.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudenthomepageComponent } from './components/studenthomepage/studenthomepage.component';
 import { SubcategoryComponent } from './components/subcategory/subcategory.component';
+import { SubcategoryforappsComponent } from './components/subcategoryforapps/subcategoryforapps.component';
+import { QuestionsComponent } from './components/questions/questions.component';
+import { AdminhomepageComponent } from './components/adminhomepage/adminhomepage.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { SubcategoryComponent } from './components/subcategory/subcategory.compo
     LoginformComponent,
     StudenthomepageComponent,
     SubcategoryComponent,
+    SubcategoryforappsComponent,
+    QuestionsComponent,
+    AdminhomepageComponent,
    
     
   ],

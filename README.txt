@@ -6,3 +6,8 @@ Update on 05.08.2022 forenoon
  completed api part from back end
  completed registration and login validation.
  working on student and admin screens
+
+update on 06.08.2022 morning
+
+completed front end screens for students and admin
+will work on frontend integration part with backend
