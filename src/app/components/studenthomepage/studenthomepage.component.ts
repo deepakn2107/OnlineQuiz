@@ -31,4 +31,18 @@ export class StudenthomepageComponent implements OnInit {
     this.route.navigateByUrl("/subcategory/"+quizcatid+"/"+studentId)
   }
 
+  gotocategories(){
+    const studentId = this.activateRouter.snapshot.paramMap.get("studentId");
+    const quizid = this.activateRouter.snapshot.paramMap.get("quizid");
+    this.route.navigateByUrl("studenthomepage/"+studentId)
+
+  }
+  gotoscorecard(){
+    const studentId = this.activateRouter.snapshot.paramMap.get("studentId");
+    const quizid = this.activateRouter.snapshot.paramMap.get("quizid");
+    this.route.navigateByUrl("scorecard/"+studentId)
+
+  }
+
+
 }

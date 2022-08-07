@@ -44,7 +44,7 @@
                 </a>
               </li> -->
             <li>
-              <a href="studenthomepage/:studentId" class="nav-link text-white  a:hover">
+              <a (click)="gotocategories()" class="nav-link text-white  a:hover">
                 <svg class="bi me-2" width="16" height="16">
                   <use xlink:href="#table" />
                 </svg>
@@ -52,14 +52,14 @@
               </a>
             </li>
             <li>
-              <a href="scorecard" class="nav-link text-white a:hover">
+              <a (click)="gotoscorecard()" class="nav-link text-white a:hover">
                 <svg class="bi me-2" width="16" height="16">
                   <use xlink:href="#grid" />
                 </svg>
                 Score card
               </a>
             </li>
-            <!-- <li>
+            <!-- <li>/studenthomepage/:studentId
                 <a href="subcategory/quizcatid/studentId" class="nav-link text-white a:hover">
                   <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
                   Quizes

@@ -19,8 +19,13 @@ export class QuizserviceService {
 
   private questurl ="http://localhost:8080/api/question/search/findByqId?id="
   private scorecardurl ="http://localhost:8080/api/scorecard"
-  constructor(private httpClient: HttpClient) { }
-  scorecard:Scorecard =new Scorecard(0,0,0,0)
+  
+  
+  
+
+
+  constructor(private httpClient: HttpClient ) { }
+  scorecard:Scorecard[]
 saveUser(user:User):Observable<User>{
   console.log(user);
   const httpOptions = {
@@ -58,6 +63,7 @@ getUserByEmail(email:string):Observable<User>{
   return this.httpClient.get<User>(url);
 
 }
+
 saveScore(scorecard:Scorecard):Observable<Scorecard>{
   console.log(scorecard);
   const httpOptions = {
@@ -70,7 +76,32 @@ saveScore(scorecard:Scorecard):Observable<Scorecard>{
   };
   return this.httpClient.post<Scorecard>(this.scorecardurl, scorecard, httpOptions);
 }
+
+getScorecard(studentId:string){
+  
+  const url = "http://localhost:8080/api/scorecard/search/findByUserId?id="+studentId;
+  return this.httpClient.get<getScorecard>(url).pipe(map(data=>data._embedded.scoreCards));
+
 }
+getUserById(studentId:string){
+  const url =this.userUrl+"/"+studentId;
+  return this.httpClient.get<User>(url);
+}
+getQuizById(id:string){
+  const url = "http://localhost:8080/api/quiz/"+id;
+  return this.httpClient.get<Quiz>(url);
+}
+getQuizes(){
+  const url="http://localhost:8080/api/quiz"
+  return this.httpClient.get<getAllQuizes>(url).pipe(map(data=>data._embedded.quizzes));
+}
+getScoreByQid(qId:number){
+  const url ="http://localhost:8080/api/scorecard/search/findByquizId?id="+qId;
+   return this.httpClient.get<getScorecard>(url).pipe(map(data=>data._embedded.scoreCards));
+}
+}
+
+
 
 interface getUserResponse{
   _embedded:{
@@ -104,4 +135,18 @@ interface getAllQuestions{
     questions:Questions[]
   }
 }
+
+
+interface getScorecard{
+  _embedded:{
+    scoreCards: Scorecard[]
+  }
+}
+// interface getQuiznameById{
+//   _embedded:{
+//     quizName:
+//   }
+// }
+
+
 

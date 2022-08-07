@@ -43,7 +43,7 @@
                   </a>
                 </li> -->
             <li>
-              <a href="studenthomepage/:studentId" class="nav-link text-white  a:hover">
+              <a (click)="gotocategories()" class="nav-link text-white  a:hover">
                 <svg class="bi me-2" width="16" height="16">
                   <use xlink:href="#table" />
                 </svg>
@@ -91,28 +91,42 @@
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="padding-left:30px; margin-top: 60px;">
       <div class="row placeholders">
-        <div class="col-xs-9 col-sm-9 placeholder">
+        <div class="col-xs-9 col-sm-9 placeholder" >
           <div class="container mt-sm-9 my-1">
-            <h1>scorecard</h1>
+            <div class="row">
+              <div class="col">
+                <h1 >scorecard</h1>
+              </div>
+              <div class="col">
+                <select class="form-select" aria-label="Default select example" style="width: 140px; margin-left: 200px;" [(ngModel)]="qId"(change)="getScoresById()" >
+                  <option value="0" selected>Select Quiz</option>
+                  <option value="{{quiz.qId}}" *ngFor="let quiz of quizes " >{{quiz.quizName}}</option>
+                  
+                </select>
+              </div>
+            </div>
+            
+
+            
             &nbsp;&nbsp;
+
+
             <table class=" table table-bordered table-striped table-light ">
               <tr>
                 <th>Serial No</th>
                 <th>User Name</th>
                 <th>Marks Scored</th>
                 <th>Quiz Name</th>
-                <th>Action</th>
+                
 
               </tr>
 
-              <tr>
-                <td>101</td>
-                <td>Deepak N</td>
-                <td>100</td>
-                <td>Java</td>
-                <td>
-                  <button type="submit" class="btn btn-info">View</button>
-                </td>
+              <tr *ngFor="let score of scoreCard, let i =index">
+                <td>{{i+1}}</td>
+                <td>{{user.firstName}} {{user.lastName}}</td>
+                <td>{{score.marksScored}}</td>
+                <td>{{score.quizname}}</td>
+               
               </tr>
             </table>
           </div>

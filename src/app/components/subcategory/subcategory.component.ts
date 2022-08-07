@@ -28,4 +28,16 @@ gotoQuiz(qId:number){
   this.route.navigateByUrl("questions/"+qId+"/"+studentId)
 
 }
+gotocategories(){
+  const studentId = this.activateRoute.snapshot.paramMap.get("studentId");
+  const quizid = this.activateRoute.snapshot.paramMap.get("quizid");
+  this.route.navigateByUrl("studenthomepage/"+studentId)
+
+}
+gotoscorecard(){
+  const studentId = this.activateRoute.snapshot.paramMap.get("studentId");
+  const quizid = this.activateRoute.snapshot.paramMap.get("quizid");
+  this.route.navigateByUrl("scorecard/"+studentId)
+
+}
 }

@@ -23,3 +23,9 @@ created all front end screens.
 
 yet to integrate admin part
 
+update on 07.08.2022 afternoon
+
+completed student part integration 
+working on admin part
+
+

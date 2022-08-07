@@ -22,7 +22,7 @@ const routes: Routes = [
   {path:'questions/:quizid/:studentId', component:QuestionsComponent},
   {path:'adminhomepage', component:AdminhomepageComponent},
   {path:'studentanalysis',component:StudentanalysisComponent},
-  {path:'scorecard', component:ScorecardComponent},
+  {path:'scorecard/:studentId', component:ScorecardComponent},
   {path:'allquizes', component:AllquizesComponent}
 ];
 

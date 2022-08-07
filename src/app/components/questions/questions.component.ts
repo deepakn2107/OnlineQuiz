@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Questions } from 'src/app/common/questions';
+import { Quiz } from 'src/app/common/quiz';
 import { Scorecard } from 'src/app/common/scorecard';
 import { QuizserviceService } from 'src/app/services/quizservice.service';
 
@@ -19,8 +20,9 @@ export class QuestionsComponent implements OnInit {
   questionsAttempted: number = 0;
   totalQuestions: number = 0;
   scorecard: Scorecard
+  quiz:Quiz
 
-  constructor(private service: QuizserviceService, private activateRoute: ActivatedRoute) { }
+  constructor(private service: QuizserviceService, private activateRoute: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
     this.getAllQuestions();
@@ -53,11 +55,28 @@ export class QuestionsComponent implements OnInit {
         this.questionsAttempted++;
       }
     });
-    this.scorecard = new Scorecard(0, studentId, this.marksObtained, quizid);
+    this.service.getQuizById(quizid).subscribe(data=>{
+      this.quiz=data;
+      this.scorecard = new Scorecard(0, studentId, this.marksObtained, quizid,this.quiz.quizName);
     console.log(this.scorecard)
     this.service.saveScore(this.scorecard).subscribe((data) => {
       alert("Scores got saved in database")
     })
+      
+    })
+    
+
+  }
+  gotocategories(){
+    const studentId = this.activateRoute.snapshot.paramMap.get("studentId");
+    const quizid = this.activateRoute.snapshot.paramMap.get("quizid");
+    this.route.navigateByUrl("studenthomepage/"+studentId)
+
+  }
+  gotoscorecard(){
+    const studentId = this.activateRoute.snapshot.paramMap.get("studentId");
+    const quizid = this.activateRoute.snapshot.paramMap.get("quizid");
+    this.route.navigateByUrl("scorecard/"+studentId)
 
   }
 
