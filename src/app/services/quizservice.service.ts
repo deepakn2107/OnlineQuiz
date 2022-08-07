@@ -95,6 +95,11 @@ export class QuizserviceService {
     const url = "http://localhost:8080/api/scorecard/search/findByQuizIdAndUserId?quizId=" + qId + "&userId=" + studentId;
     return this.httpClient.get<getScorecard>(url).pipe(map(data => data._embedded.scoreCards));
   }
+
+  getScoreByQuizid(qId: number) {
+    const url = "http://localhost:8080/api/scorecard/search/findByquizId?id=" + qId ;
+    return this.httpClient.get<getScorecard>(url).pipe(map(data => data._embedded.scoreCards));
+  }
   getAllStudents() {
     const url = "http://localhost:8080/api/user/search/findByRoleId?id=2"
     return this.httpClient.get<getUserResponse>(url).pipe(map(data => data._embedded.users));

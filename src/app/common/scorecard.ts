@@ -5,5 +5,7 @@ export class Scorecard {
                 public userId:any,
                 public marksScored:number,
                 public quizId:any,
-                public quizname:any){}
+                public quizname:any,
+                public userName:string,
+                public dateAttempted:any){}
 }

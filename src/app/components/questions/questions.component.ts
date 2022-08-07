@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Questions } from 'src/app/common/questions';
 import { Quiz } from 'src/app/common/quiz';
 import { Scorecard } from 'src/app/common/scorecard';
+import { User } from 'src/app/common/user';
 import { QuizserviceService } from 'src/app/services/quizservice.service';
 
 @Component({
@@ -20,7 +21,15 @@ export class QuestionsComponent implements OnInit {
   questionsAttempted: number = 0;
   totalQuestions: number = 0;
   scorecard: Scorecard
-  quiz:Quiz
+  quiz: Quiz
+
+  student: User
+
+  date = new Date()
+  day = this.date.getDate();
+  month = this.date.getMonth() + 1;
+  year = this.date.getFullYear();
+  fullDate = `${this.day}.${this.month}.${this.year}`
 
   constructor(private service: QuizserviceService, private activateRoute: ActivatedRoute, private route: Router) { }
 
@@ -55,28 +64,32 @@ export class QuestionsComponent implements OnInit {
         this.questionsAttempted++;
       }
     });
-    this.service.getQuizById(quizid).subscribe(data=>{
-      this.quiz=data;
-      this.scorecard = new Scorecard(0, studentId, this.marksObtained, quizid,this.quiz.quizName);
-    console.log(this.scorecard)
-    this.service.saveScore(this.scorecard).subscribe((data) => {
-      alert("Scores got saved in database")
+    this.service.getUserById(studentId).subscribe(data => {
+      this.student = data;
+      this.service.getQuizById(quizid).subscribe(data => {
+        this.quiz = data;
+        this.scorecard = new Scorecard(0, studentId, this.marksObtained, quizid, this.quiz.quizName, this.student.userName, this.fullDate);
+        console.log(this.scorecard)
+        this.service.saveScore(this.scorecard).subscribe((data) => {
+          alert("Scores got saved in database")
+        })
+
+      })
     })
-      
-    })
-    
+
+
 
   }
-  gotocategories(){
+  gotocategories() {
     const studentId = this.activateRoute.snapshot.paramMap.get("studentId");
     const quizid = this.activateRoute.snapshot.paramMap.get("quizid");
-    this.route.navigateByUrl("studenthomepage/"+studentId)
+    this.route.navigateByUrl("studenthomepage/" + studentId)
 
   }
-  gotoscorecard(){
+  gotoscorecard() {
     const studentId = this.activateRoute.snapshot.paramMap.get("studentId");
     const quizid = this.activateRoute.snapshot.paramMap.get("quizid");
-    this.route.navigateByUrl("scorecard/"+studentId)
+    this.route.navigateByUrl("scorecard/" + studentId)
 
   }
 
