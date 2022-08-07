@@ -102,3 +102,7 @@ main {
 .a:hover {
   background-color: blue;
 }
+
+.modalfont{
+  font-size: larger;
+}

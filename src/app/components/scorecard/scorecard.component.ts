@@ -18,6 +18,13 @@ export class ScorecardComponent implements OnInit {
   quizes: Quiz[]
   quizId:any
   qId:number=0;
+
+  date =new Date()
+  day = this.date.getDate();
+  month = this.date.getMonth()+1;
+  year = this.date.getFullYear();
+  fullDate = `${this.day}.${this.month}.${this.year}`
+
   constructor(private activateRoute:ActivatedRoute, private route:Router, private service:QuizserviceService) { }
 
   ngOnInit(): void {
@@ -71,11 +78,19 @@ export class ScorecardComponent implements OnInit {
   }
 
   getScoresById(){
-    console.log("Im here");
-    this.service.getScoreByQid(this.qId).subscribe(data=>{
+    // console.log(this.fullDate);
+    if(this.qId==0){
+      this.getScorecardById()
+
+    }else{
+      const studentId = this.activateRoute.snapshot.paramMap.get("studentId");
+    this.service.getScoreByQid(this.qId, studentId).subscribe(data=>{
         this.scoreCard=data;
+        
         console.log(this.scoreCard);
     })
+    }
+    
   }
 
 }

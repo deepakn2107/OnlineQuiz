@@ -99,7 +99,7 @@
               </div>
               <div class="col">
                 <select class="form-select" aria-label="Default select example" style="width: 140px; margin-left: 200px;" [(ngModel)]="qId"(change)="getScoresById()" >
-                  <option value="0" selected>Select Quiz</option>
+                  <option value="0" selected>All Quiz</option>
                   <option value="{{quiz.qId}}" *ngFor="let quiz of quizes " >{{quiz.quizName}}</option>
                   
                 </select>
@@ -117,6 +117,8 @@
                 <th>User Name</th>
                 <th>Marks Scored</th>
                 <th>Quiz Name</th>
+                <th>Date</th>
+               
                 
 
               </tr>
@@ -126,6 +128,8 @@
                 <td>{{user.firstName}} {{user.lastName}}</td>
                 <td>{{score.marksScored}}</td>
                 <td>{{score.quizname}}</td>
+                <td>{{fullDate}}</td>
+                
                
               </tr>
             </table>

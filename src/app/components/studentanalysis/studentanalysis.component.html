@@ -97,10 +97,10 @@
       <div class="row placeholders">
         <div class="col-xs-9 col-sm-9 placeholder">
           <div class="container mt-sm-9 my-1">
-            <h1>Student List</h1>
+            <h1 >Student List</h1>
             &nbsp;&nbsp;
             <table class=" table table-bordered table-striped table-light ">
-              <tr>
+              <tr class="modalfont">
                 <th>Student ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -110,25 +110,62 @@
 
               </tr>
 
-              <tr>
-                <td>101</td>
-                <td>Deepak</td>
-                <td>Narayanasamy</td>
-                <td> deepak@gmail.com</td>
-                <td>6380839316</td>
-              
+              <tr *ngFor="let student of user" class="modalfont">
+                <td>{{student.userId}}</td>
+                <td>{{student.firstName}}</td>
+                <td>{{student.lastName}}</td>
+                <td> {{student.email}}</td>
+                <td>{{student.phoneNo}}</td>
+
 
                 <td>
-                  <button type="submit" class="btn btn-info">View</button>
+                  <button type="submit" class="btn btn-info btn-sm" (click)="getScorecard(student.userId)"
+                    data-bs-toggle="modal" data-bs-target="#scoreModel">View</button>
                 </td>
               </tr>
             </table>
+          </div>
 
+        </div>
+      </div>
+      <div class="modal" tabindex="-1" id="scoreModel" >
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title" style="font-size: largr;">Score Card</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" >
+              <table>
+                <table class=" table table-bordered table-striped table-light " style="width: 750px;">
+                  <tr class="modalfont">
+                    <th>Serial No</th>         
+                    <th>Quiz Id</th>
+                    <th>Quiz Name</th>                  
+                    <th>Marks Scored</th>
+                    <th>Date</th>
+    
+                  </tr>
+    
+                  <tr *ngFor="let student of scoreById, let i = index" class="modalfont">
+                    <td>{{i+1}}</td>
+                    <td>{{student.quizId}}</td>
+                    <td>{{student.quizname}}</td>
+                    <td> {{student.marksScored}}</td>
+                    <!-- <td>{{student.phoneNo}}</td> -->
+    
+    
+                    
+                  </tr>
+                </table>
+              </table>
+            </div>
+            
           </div>
         </div>
-
-
       </div>
+
+
     </div>
 
 
