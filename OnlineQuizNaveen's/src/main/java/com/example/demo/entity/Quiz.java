@@ -21,20 +21,40 @@ public class Quiz {
 	@Column(name="totalmarks")
 	private int totalMarks;
 	
+	@Column(name ="description")
+	private String description;
+	
 	//private QuizCategory quizcategory;
 	
 	public Quiz() {
 		
 	}
 
-	public Quiz(int qId, String quizName, int quizcatId, int noOfQuestions, int totalMarks) {
+	
+
+	public Quiz(int qId, String quizName, int quizcatId, int noOfQuestions, int totalMarks, String description) {
 		super();
 		this.qId = qId;
 		this.quizName = quizName;
 		this.quizcatId = quizcatId;
 		this.noOfQuestions = noOfQuestions;
 		this.totalMarks = totalMarks;
+		this.description = description;
 	}
+
+
+
+	public String getDescription() {
+		return description;
+	}
+
+
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+
 
 	public int getqId() {
 		return qId;

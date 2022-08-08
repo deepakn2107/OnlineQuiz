@@ -14,15 +14,18 @@ public class QuizCategory {
 	private int quizId;
 	@Column(name="quizcategory")
 	private String quizCategory;
+	@Column(name="description")
+	private String description;
 	
 	public QuizCategory() {
 		
 	}
 
-	public QuizCategory(int quizId, String quizCategory) {
+	public QuizCategory(int quizId, String quizCategory, String description) {
 		super();
 		this.quizId = quizId;
 		this.quizCategory = quizCategory;
+		this.description = description;
 	}
 
 	public int getQuizId() {
@@ -40,6 +43,17 @@ public class QuizCategory {
 	public void setQuizCategory(String quizCategory) {
 		this.quizCategory = quizCategory;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
+	
 	
 	
 }

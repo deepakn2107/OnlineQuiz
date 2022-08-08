@@ -11,7 +11,7 @@ public class User {
 
 	@Id
 	@Column(name="userid")
-	private int userId;
+	private Integer userId;
 	@Column(name="email")
 	private String email;
 	@Column(name="firstname")
@@ -25,7 +25,7 @@ public class User {
 	@Column(name="phonenumber")
 	private String phoneNo;
 	@Column(name="roleid")
-	private int roleId;
+	private Integer roleId;
 
 	
 	public User() {
@@ -33,8 +33,8 @@ public class User {
 	}
 
 
-	public User(int userId, String email, String firstName, String lastName, String userName, String password,
-			String phoneNo, int roleId) {
+	public User(Integer userId, String email, String firstName, String lastName, String userName, String password,
+			String phoneNo, Integer roleId) {
 		super();
 		this.userId = userId;
 		this.email = email;
@@ -47,12 +47,12 @@ public class User {
 	}
 
 
-	public int getUserId() {
+	public Integer getUserId() {
 		return userId;
 	}
 
 
-	public void setUserId(int userId) {
+	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
 
@@ -117,12 +117,12 @@ public class User {
 	}
 
 
-	public int getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 
 
-	public void setRoleId(int roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 	

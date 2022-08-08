@@ -1,0 +1,68 @@
+create database OnlineQuiz; 
+use OnlineQuiz;
+
+create table roles(id int primary key, role varchar(40));
+ 
+insert into roles values (1,"admin"),(2, "student");
+
+create table user(userid int primary key, email varchar(255) unique, firstname varchar(200), lastname varchar(200),username varchar(255), password varchar(25), phonenumber varchar(10), roleid int, foreign key(roleid) references roles(id));
+insert into user values (100,"anaveen@gmail.com", "naveen","alakunta","anaveen","naveen123","9100223124",1),(101,"deepak@gmail.com","deepak" ,"deepak","ndeepak","deepak123","9101020213",2);
+
+create table quizcategory(quizid int primary key, quizcategory varchar(300));
+insert into quizcategory values(1,"technical"),(2,"aptitude");
+
+create table quiz(qid int primary key, quizname varchar(255), quizcatid int,noofquestions int, totalmarks int,foreign key(quizcatid) references quizcategory(quizid));
+insert into quiz values(10,"Java",1,10,10),(20,"Reasoning",2,10,10),(30,"python",1,10,10),(40,"Arithmetic",2,10,10);
+
+create table question(quesid int primary key, question varchar(1000), option1 varchar(500), option2 varchar(500), option3 varchar(500), option4 varchar(500), answer varchar(500), qid int, foreign key(qid) references quiz(qid)); 
+insert into question values(1,"Which of the following is not a Java features?","Dynamic","Architecture Neutral","Use of pointers","Object-oriented","Use of pointers",10),
+							(2,"___ is used to find and fix bugs in the Java programs.","JVM","JRE","JDK","JDB","JDB",10),
+                            (3,"What is the return type of the hashCode() method in the Object class?","Object","Int","long","void","Int",10),
+                            (4,"Who developed the Python language?","Zim Den","Guido van Rossum","Niene Stom","Wick van Rossum","Guido van Rossum",20),
+                            (5,"Which one of the following is the correct extension of the Python file?",".py",".python",".p","none of the above",".py",20);
+                            
+select * from roles;
+select * from user;
+select * from quizcategory;
+select * from quiz;
+select * from question;
+select * from scorecard;
+
+create table scorecard(sid int primary key, userid int,marksscored int,quizid int, foreign key(userid) references user(userid), foreign key(quizid) references quiz(qid));
+alter table scorecard rename column sid  to serialno;
+
+select * from scorecard;
+insert into question values(11,"What is the size of float and double in java?","32 and 64","32 and 32","64 and 64","64 and 32","32 and 64",10),
+							(7,"Automatic type conversion is possible in which of the possible cases?","Byte to int","int to long","long to int","short to int","int to long",10),
+                            (8,"Select the valid statement","Char[] ch=new Char(5)" ,"Char[] ch=new Char[5]","Char[] ch=new Char()","Char[] ch=new Char[]","Char[] ch=new Char[5]",10),
+                            (9,"When is the object created with new keyword?","At Run time","At compile Time","Depends on the code","None of the above","At Run time",10),
+                            (10,"In which of the following is toString() method defined?","java.lang.Object","java.lang.String","java.lang.Util","none of the above","java.lang.Object",10);
+                            
+insert into question values(12," What do we use to define a block of code in Python language?","Key","Brackets","Indentation","none of the above","Indentation",30),
+							(13,"Why does the name of local variables start with an underscore discouraged?","To identify the variable","It confuses the interpreter","It indicates a private variable of a class","none of the above","It indicates a private variable of a class",30),
+                            (14,"Which of the following is not a keyword in Python language?","val" ,"raise","try","with","val",30),
+                            (15,"Which one of the following has the highest precedence in the expression?","Division","Subtraction","Power","Parentheses","Parentheses",30),
+                            (16,"Which of the following functions is a built-in function in python language?","val()","print()","value()","none of the above","print()",30);
+                   
+                   
+insert into question values(17,"In which year was the Python language developed?","1995","1972","1981","1989","1989",30),
+							(18,"Which character is used in Python to make a single line comment?","/","//","*","#","#",30),
+                            (19,"What is the method inside the class in python language?","Object" ,"Function","try","with","val",30),
+                            (20,"Which one of the following has the highest precedence in the expression?","Division","Subtraction","Attribute","Argument","Function",30);
+                            
+insert into question values(21,"If AIRLINE is written as ENILRIA7, then RAILWAY will be written as -","YAWLIAR7","YAWLIAR8","YAWILAR7","YAWILAR8","YAWLIAR7",20),
+							(22,"If CAT is coded as PATC, JOY is coded as POYJ; similarly the word WING will be coded as -","PIGNW","PINGW","PGNIW","PIWGN"," PINGW",20),
+                            (23,"Which number should come next in the series 1, 2, 3, 10, _","79" ,"99","89","98","99",20),
+                            (24,"Which number is wrong in the series 2, 6, 15, 31, 56, 93?","6","31","56","93","93",20),
+                            (25,"Suppose a series is 6, 11, 21, 36, 56, ? the number comes at the place of question mark in the given series is -","91","21","52","81","81",20);
+                   
+insert into question values(26,"Which of the following is the odd one from the given alternatives?","Driving","Diving","Swimming","Sailing","Driving",20),
+							(27,"Which of the following is the odd number from the given alternatives?","1090","962","626","841"," 841",20),
+                            (28,"Hypsiphobia: Height :: Hylophobia: ?","Forests" ,"Animals","Water","All of the above","Forests",20),
+                            (29,"The day before yesterday was Saturday. What will be the day after tomorrow?","Thursday","Friday","Wednesday","Monday","Wednesday",20),
+                            (30,"What is the average of first five multiples of 12?","36","38","40","42","36",40),
+                            (31,"What is the difference in the place value of 5 in the numeral 754853?","49500","49950","45000","49940","49950",40),
+                            (32,"What is the compound interest on Rs. 2500 for 2 years at rate of interest 4% per annum?","Rs. 180","Rs. 204","Rs. 210","Rs. 220","Rs. 204",40),
+                            (33,"If January 1, 1996, was Monday, what day of the week was January 1, 1997?","Thursday","Wednesday","Friday","Sunday","Wednesday",40),
+                            (34,"On February 5, 1998, it was Thursday. The day of the week on February 5, 1997, was","36","38","40","42","36",40),
+                            (35,"What is the average of first five multiples of 12?","36","38","40","42","36",40);
