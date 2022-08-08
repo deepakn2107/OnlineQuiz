@@ -71,7 +71,7 @@ export class QuestionsComponent implements OnInit {
         this.scorecard = new Scorecard(0, studentId, this.marksObtained, quizid, this.quiz.quizName, this.student.userName, this.fullDate);
         console.log(this.scorecard)
         this.service.saveScore(this.scorecard).subscribe((data) => {
-          alert("Scores got saved in database")
+          alert("Your answer were submitted successfully!!")
         })
 
       })
